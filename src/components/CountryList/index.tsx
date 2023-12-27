@@ -1,44 +1,16 @@
 // CountryList.js
-import React, { useState, useEffect, memo } from "react";
-import {
-  ActivityIndicator,
-  FlatList,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import React, { useState, useEffect } from "react";
+import { FlatList, StyleSheet, Text, View } from "react-native";
 import { getAllCountries } from "../../services/api";
 import CountryListItem from "../CountryListItem";
 import categorizeAndSortCountries from "../../utils/categorizeAndSortCountries";
 
 interface CountryListProps {
   searchKeyword: string;
+  selectedRegion: string;
 }
 
-export type Country = {
-  name: {
-    common: string;
-  };
-  capital: string;
-  cca2: string;
-  currencies: {
-    [code: string]: {
-      name: string;
-      symbol: string;
-    };
-  };
-  region: string;
-  languages: {
-    [code: string]: string;
-  };
-  population: number;
-  flags: {
-    png: string;
-    svg: string;
-  };
-};
-
-const CountryList = ({ searchKeyword }: CountryListProps) => {
+const CountryList = ({ searchKeyword, selectedRegion }: CountryListProps) => {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
@@ -56,7 +28,8 @@ const CountryList = ({ searchKeyword }: CountryListProps) => {
 
   const filteredCountries = categorizeAndSortCountries(
     countries,
-    searchKeyword
+    searchKeyword,
+    selectedRegion
   );
 
   const renderSeparator = (data, index) => {
