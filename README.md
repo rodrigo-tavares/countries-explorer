@@ -2,7 +2,11 @@
 
 This is a React Native app that allows users to explore information about countries. It fetches country data from the [Restcountries API](https://restcountries.com/) and provides features such as filtering countries by name, displaying high-level overviews, and navigating to detailed information about each country.
 
-Demo: 
+ ## Demo
+
+ | Searching | Filtering |
+ | ----- | -----| 
+ |![countries](https://github.com/rodrigo-tavares/countries-explorer/assets/18193620/a8452ec5-4dc3-4c89-ba41-9d1464a31269)| ![countries2](https://github.com/rodrigo-tavares/countries-explorer/assets/18193620/64630251-961b-4a91-a006-554b5ff96fc3)|
 
 ## Features
 
